@@ -1,0 +1,54 @@
+<ng-template [ngIf]="orderModel.length == 0">
+  <app-spinners></app-spinners>
+</ng-template>
+<ng-template [ngIf]="orderModel.length >0">
+  <div><button mat-raised-button type="button" color="primary"
+    [routerLink]="['/dashboard', 'order', 'create']">Create Order</button></div>
+  <div>
+    <table>
+      <tr>
+        <th>OrderID</th>
+        <th>CustomerID</th>
+        <th>EmployeeID</th>
+        <th>ShipAddress</th>
+        <th>ShipCountry</th>
+        <th>Cancel Order</th>
+      </tr>
+      <tr *ngFor="let item of orderModel">
+        <td>{{item.OrderID}}</td>
+        <td>{{item.CustomerID}}</td>
+        <td>{{item.EmployeeID}}</td>
+        <td>{{item.ShipAddress}}</td>
+        <td>{{item.ShipCountry}}</td> 
+        <td> <button mat-raised-button type="button" color="warn"
+        (click)="cancelOrder(item.OrderID)">Cancel</button></td>
+      </tr>
+    </table>
+      <div>
+        <button mat-raised-button type="button" (click)="previousPage()" style="float:left" color="primary" >Previous</button>
+        <button mat-raised-button type="button" (click)="nextPage()" style="float:right" color="primary" >Next</button>
+      </div>
+  </div>
+  
+</ng-template>
+
+
+<!-- 
+"OrderID": 10538,
+"CustomerID": "BSBEV",
+"EmployeeID": 9,
+"OrderDate": "1997-05-15 00:00:00.000",
+"RequiredDate": "1997-06-12 00:00:00.000",
+"ShipVia": 3,
+"ShipAddress": "Fauntleroy Circus",
+"ShipCountry": "UK",
+"ShippedDate": "1997-05-16 00:00:00.000",
+"Freight": 4.87,
+"ShipName": "B's Beverages",
+"ShipCity": "London",
+"ShipRegion": "NULL",
+"ShipPostalCode": "EC2 5NT",
+"ProductID": 72,
+"UnitPrice": 34.8,
+"Quantity": 1,
+"Discount": 0 -->

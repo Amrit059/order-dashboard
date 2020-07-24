@@ -1,0 +1,28 @@
+<ng-template [ngIf]="userModel.length == 0">
+  <app-spinners></app-spinners>
+</ng-template>
+<ng-template [ngIf]="userModel.length >0">
+  <div><button mat-raised-button type="button" color="primary"
+    [routerLink]="['/dashboard', 'users', 'create']">Add User</button></div>
+  <div>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Type</th>
+        <th>Status</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+      <tr *ngFor="let item of userModel">
+        <td>{{item.fullName}}</td>
+        <td>{{item.email}}</td>
+        <td>{{item.role}}</td>
+        <td>{{item.isActive}}</td>
+        <td> <button mat-raised-button type="button" color="primary"
+            [routerLink]="['/dashboard', 'users', 'edit', item._id]">edit</button></td>
+        <td> <button mat-raised-button type="button" color="warn">delete</button></td>
+      </tr>
+    </table>
+  </div>
+</ng-template>

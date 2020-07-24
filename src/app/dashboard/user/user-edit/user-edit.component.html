@@ -1,0 +1,77 @@
+<!-- <ng-template [ngIf]="modelType!=='EDIT'||modelType!=='CREATE'">
+  <app-spinners></app-spinners>
+</ng-template> -->
+<ng-template [ngIf]="modelType == 'EDIT' && userModel.fullName != undefined ">
+  <div style="text-align: center;">
+    <div style="margin: 50px;">
+      <h2>
+        {{title}}
+      </h2>
+    </div>
+    <form [formGroup]="userForm">
+      <div>
+        <mat-form-field>
+          <input matInput name="fullName" formControlName="fullName" placeholder="Enter fullName">
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <input matInput name="email" formControlName="email" placeholder="Enter Email">
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <mat-select name="role" formControlName="role" placeholder="role">
+            <mat-option *ngFor="let usr of userTypes" [value]="usr.value">
+              {{ usr.display }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <span>
+        <button mat-raised-button type="submit" [disabled]=userForm.invalid (click)="userEdit()"
+          color="primary">Edit</button>
+      </span>
+    </form>
+  </div>
+</ng-template>
+
+<ng-template [ngIf]="modelType =='CREATE'">
+  <div style="text-align: center;">
+    <div style="margin: 50px;">
+      <h2>
+        {{title}}
+      </h2>
+    </div>
+    <form [formGroup]="userForm">
+      <div>
+        <mat-form-field>
+          <input matInput name="fullName" formControlName="fullName" placeholder="Enter fullName">
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <input matInput name="email" formControlName="email" placeholder="Enter Email">
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <input matInput name="password" formControlName="password" placeholder="Enter password">
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <mat-select name="role" formControlName="role" placeholder="role">
+            <mat-option *ngFor="let usr of userTypes" [value]="usr.value">
+              {{ usr.display }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <span>
+        <button mat-raised-button type="submit" [disabled]=userForm.invalid (click)="userEdit()"
+          color="primary">Save</button>
+      </span>
+    </form>
+  </div>
+</ng-template>

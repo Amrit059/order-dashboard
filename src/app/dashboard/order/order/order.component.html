@@ -1,0 +1,96 @@
+<!-- <ng-template [ngIf]="modelType =='CREATE'"> -->
+<div style="text-align: center;">
+  <form [formGroup]="orderForm">
+    <div>
+      <mat-form-field>
+        <input matInput name="CustomerID" formControlName="CustomerID" placeholder="Enter CustomerID">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput name="ShipName" formControlName="ShipName" placeholder="Enter ShipName">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput name="ShipAddress" formControlName="ShipAddress" placeholder="Enter ShipAddress">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput name="ShipCity" formControlName="ShipCity" placeholder="Enter ShipCity">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput name="ShipRegion" formControlName="ShipRegion" placeholder="Enter ShipRegion">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput name="ShipPostalCode" formControlName="ShipPostalCode" placeholder="Enter ShipPostalCode">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput name="ShipCountry" formControlName="ShipCountry" placeholder="Enter ShipCountry">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput name="EmployeeID" formControlName="EmployeeID" placeholder="Enter EmployeeID">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput name="ShipVia" formControlName="ShipVia" placeholder="Enter ShipVia">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput name="Freight" formControlName="Freight" placeholder="Enter Freight">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput name="ProductID" formControlName="ProductID" placeholder="Enter ProductID">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput name="UnitPrice" formControlName="UnitPrice" placeholder="Enter UnitPrice">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput name="Quantity" formControlName="Quantity" placeholder="Enter Quantity">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput name="Discount" formControlName="Discount" placeholder="Enter Discount">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput formControlName="RequiredDate" [matDatepicker]="picker" name="RequiredDate"
+          formControlName="RequiredDate" placeholder="Choose a RequiredDate">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput formControlName="ShippedDate" [matDatepicker]="newPicker" name="ShippedDate"
+          formControlName="ShippedDate" placeholder="Choose a ShippedDate">
+        <mat-datepicker-toggle matSuffix [for]="newPicker"></mat-datepicker-toggle>
+        <mat-datepicker #newPicker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <span>
+      <button mat-raised-button type="submit" [disabled]=orderForm.invalid (click)="createOrder()"
+        color="primary">Create</button>
+    </span>
+  </form>
+</div>
+<!-- </ng-template> -->
